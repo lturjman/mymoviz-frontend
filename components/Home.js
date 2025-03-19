@@ -7,11 +7,13 @@ import "antd/dist/antd.css";
 import styles from "../styles/Home.module.css";
 import { useEffect } from "react";
 
+const backendUrl = "https://mymoviz-backend-six-phi.vercel.app";
+
 function Home() {
   const [moviesData, setMoviesData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/movies")
+    fetch(`${backendUrl}/movies`)
       .then((response) => response.json())
       .then((data) => {
         setMoviesData(data.movies);
